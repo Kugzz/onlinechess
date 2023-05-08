@@ -1,6 +1,6 @@
 package com.apinanpaska.web.htmlcontroller;
 
-import com.apinanpaska.web.htmlcontroller.models.ConnectionModel;
+import com.apinanpaska.web.htmlcontroller.models.ConnectionClientModel;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DeleteController {
 
     @DeleteMapping("/rest/deleteGame")
-    public void deleteGame(@RequestBody ConnectionModel connectionModel){
+    public void deleteGame(@RequestBody ConnectionClientModel connectionClientModel){
 
     }
 }

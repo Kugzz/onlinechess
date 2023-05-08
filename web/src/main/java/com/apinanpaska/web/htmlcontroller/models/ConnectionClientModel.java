@@ -1,6 +1,6 @@
 package com.apinanpaska.web.htmlcontroller.models;
 
-public record ConnectionModel(
+public record ConnectionClientModel(
         String clientID,
         String roomID
 ) { }

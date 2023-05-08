@@ -4,8 +4,4 @@ import java.util.UUID;
 
 public class ControllerUtil {
 
-    //change later to a better algorithm
-    public static String randomToken(){
-        return UUID.randomUUID().toString();
-    }
 }
