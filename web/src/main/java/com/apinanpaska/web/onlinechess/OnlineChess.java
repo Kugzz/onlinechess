@@ -9,12 +9,9 @@ import java.util.*;
 public class OnlineChess {
 
     static final int maxGameCount = 20;
-    static int gameCount;
+    static int gameCount = 0;
     static Map<String, Integer> rooms;
     static ArrayList<ChessGame> games;
-
-    //muuut funktiot
-    //korjaa noi
 
     //create settings model if required
     public static String createGame(String clientID){
@@ -35,6 +32,7 @@ public class OnlineChess {
         return roomID;
     }
 
+    //connects client to specified game
     public static int connectClient(String clientID, String roomID){
         if (games.get(rooms.get(roomID)).getPlayerCount() >= games.get(rooms.get(roomID)).getMaxPlayerCount()) return 1;
         games.get(rooms.get(roomID)).addPlayer(clientID);
@@ -42,6 +40,7 @@ public class OnlineChess {
         return 0;
     }
 
+    //disconnect client from game
     public static int disconnectClient(String clientID, String roomID){
         if(!ChessGameUtil.playerJoined(clientID, games.get(rooms.get(roomID)).getPlayers())) return 1; //järjestä error koodit uudelleen
 
@@ -51,7 +50,9 @@ public class OnlineChess {
     //main and run
 
     private static void mainLoop(){
-        //kutsu joitakin funktioita
+
+        for(ChessGame game : games) game.iteration();
+
         try{
             Thread.sleep(1000/60);
         } catch (InterruptedException e) {
@@ -61,12 +62,8 @@ public class OnlineChess {
     }
 
     public static void run(){
-        gameCount = 0;
         rooms = new HashMap<String, Integer>();
         games = new ArrayList<ChessGame>(Collections.nCopies(maxGameCount, null));
-        //mietin lista inittausta
         //mainLoop();
     }
-
-    //Testaa funktioita
 }

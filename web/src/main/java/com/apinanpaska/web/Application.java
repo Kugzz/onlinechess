@@ -12,5 +12,4 @@ public class Application {
 		OnlineChess.run();
 		System.out.println("toimii");
 	}
-
 }

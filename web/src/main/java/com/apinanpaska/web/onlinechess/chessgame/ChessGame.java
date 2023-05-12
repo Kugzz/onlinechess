@@ -16,6 +16,14 @@ public class ChessGame {
         players = new ArrayList<String>();
     }
 
+    //private functions
+
+    //public functions
+
+    public void iteration(){
+
+    }
+
     //add player with value playerID
     public int addPlayer(String clientID){
         if(playerCount >= maxPlayerCount) return 1;

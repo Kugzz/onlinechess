@@ -1,7 +1,7 @@
 package com.apinanpaska.web.htmlcontroller.models;
 
 public record ConnectionServerModel(
-        int status,
+        Integer status,
         String ClientID,
         String roomID
 ) {
