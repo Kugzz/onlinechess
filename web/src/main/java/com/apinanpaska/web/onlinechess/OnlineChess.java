@@ -8,50 +8,40 @@ import java.util.*;
 
 public class OnlineChess {
 
+    //tähän
     static final int maxGameCount = 20;
     static int gameCount = 0;
-    static Map<String, Integer> rooms;
-    static ArrayList<ChessGame> games;
+    static Map<String, ChessGame> games;
 
     //create settings model if required
     public static String createGame(String clientID){
         if(gameCount >= maxGameCount) return null;
-        int roomIndex = -1;
-        for(int i = 0; i < maxGameCount; i++){
-            if(games.get(i) == null) {
-                roomIndex = i;
-                break;
-            }
-        }
-        if(roomIndex == -1) return null;
 
         String roomID = GeneralUtil.randomToken();
-        games.set(roomIndex, new ChessGame());
-        rooms.put(roomID, roomIndex);
+        games.put(roomID, new ChessGame());
+        gameCount++;
 
         return roomID;
     }
 
     //connects client to specified game
     public static int connectClient(String clientID, String roomID){
-        if (games.get(rooms.get(roomID)).getPlayerCount() >= games.get(rooms.get(roomID)).getMaxPlayerCount()) return 1;
-        games.get(rooms.get(roomID)).addPlayer(clientID);
 
-        return 0;
+        return games.get(roomID).addPlayer(clientID);
     }
 
     //disconnect client from game
     public static int disconnectClient(String clientID, String roomID){
-        if(!ChessGameUtil.playerJoined(clientID, games.get(rooms.get(roomID)).getPlayers())) return 1; //järjestä error koodit uudelleen
+        if(!ChessGameUtil.playerJoined(clientID, games.get(roomID).getPlayers())) return 1; //järjestä error koodit uudelleen
 
-        return games.get(rooms.get(roomID)).removePlayer(clientID);
+        return games.get(roomID).removePlayer(clientID);
     }
 
     //main and run
 
     private static void mainLoop(){
 
-        for(ChessGame game : games) game.iteration();
+        for(ChessGame game : games.values()) game.iteration();
 
         try{
             Thread.sleep(1000/60);
@@ -62,8 +52,7 @@ public class OnlineChess {
     }
 
     public static void run(){
-        rooms = new HashMap<String, Integer>();
-        games = new ArrayList<ChessGame>(Collections.nCopies(maxGameCount, null));
+        games = new HashMap<String, ChessGame>();
         //mainLoop();
     }
 }

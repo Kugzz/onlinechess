@@ -12,7 +12,7 @@ public class ChessGame {
 
     public ChessGame(){
         playerCount = 0;
-        maxPlayerCount = 0;
+        maxPlayerCount = 2;
         players = new ArrayList<String>();
     }
 
@@ -28,6 +28,9 @@ public class ChessGame {
     public int addPlayer(String clientID){
         if(playerCount >= maxPlayerCount) return 1;
         if(ChessGameUtil.playerJoined(clientID, players)) return 2;
+
+        players.add(clientID);
+
         return 0;
     }
 

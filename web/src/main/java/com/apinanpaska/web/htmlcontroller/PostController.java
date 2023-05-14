@@ -21,16 +21,12 @@ public class PostController {
     public ConnectionServerModel createGame(@RequestBody ConnectionClientModel connectionClientModel){
         System.out.println("createGame request made");
         return new ConnectionServerModel(null, null, OnlineChess.createGame(connectionClientModel.clientID()));
-        //CreateGameRespsone model hyvin todennäköisesti turha
-        //OnlineChess.createGame(connectionClientModel.clientID());
-        //return new CreateGameResponseModel(OnlineChess.createGame(connectionClientModel.clientID()));
-        //return ResponseEntity.ok().body(OnlineChess.createGame(connectionClientModel.clientID()));
-
     }
 
     @PostMapping("/rest/connectClient")
-    public void connectClient(@RequestBody ConnectionClientModel connectionClientModel){
-        OnlineChess.connectClient(connectionClientModel.clientID(), connectionClientModel.roomID());
+    public ConnectionServerModel connectClient(@RequestBody ConnectionClientModel connectionClientModel){
+        System.out.println("connectClient request made");
+        return new ConnectionServerModel(OnlineChess.connectClient(connectionClientModel.clientID(), connectionClientModel.roomID()), null, null);
     }
 
 }
