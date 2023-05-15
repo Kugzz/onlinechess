@@ -15,4 +15,11 @@ public class TesthtmlController {
         return "test";
     }
 
+    @GetMapping("/kissa")
+    public String kissa(){
+        System.out.println("kissa");
+
+        return "apina";
+    }
+
 }

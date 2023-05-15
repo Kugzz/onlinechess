@@ -61,7 +61,7 @@ const connectClient = async () => {
         headers:{
             "Content-type": "application/json; charset=UTF-8"
         }
-    }).then(result => result.text()).then(result => console.log(result));
+    }).then(result => result.json()).then(result => console.log(result));
 }
 
 const handlebutton = (e) => {

@@ -16,7 +16,6 @@ import java.net.URI;
 @RestController
 public class PostController {
 
-
     @PostMapping("/rest/createGame")
     public ConnectionServerModel createGame(@RequestBody ConnectionClientModel connectionClientModel){
         System.out.println("createGame request made");
