@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
       <meta charset="UTF-8">
       <title>OnlineChess</title>
@@ -8,8 +8,9 @@
     <h1>Main menu</h1>
 
     <div id="gamestab">
-        <div th:each="">
-
+        <div th:each="game : ${games}">
+            <td th:text="${game.roomID}"></td>
+            <td th:text="${game.hostID}"></td>
         </div>
     </div>
   </body>

@@ -36,7 +36,7 @@ const createGame = async () =>{
     await fetch("http://localhost:8080/rest/createGame",{
         method: "POST",
         body: JSON.stringify({
-            "clientID": "abcdefg",
+            "clientID": token,
             "roomdID": null
         }),
         headers:{
@@ -55,7 +55,7 @@ const connectClient = async () => {
     await fetch("http://localhost:8080/rest/connectClient", {
         method: "POST",
         body: JSON.stringify({
-            clientID: "abcdee",
+            clientID: token,
             roomID: saku.value
         }),
         headers:{

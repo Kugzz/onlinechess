@@ -7,13 +7,12 @@ import java.util.ArrayList;
 public class ChessGame {
 
     //muuttujia oikeasti enemmän
-    int playerCount, maxPlayerCount;
-    ArrayList<String> players;
+    int playerCount = 0; int maxPlayerCount = 2;
+    String hostID;
+    ArrayList<String> players = new ArrayList<String>();
 
-    public ChessGame(){
-        playerCount = 0;
-        maxPlayerCount = 2;
-        players = new ArrayList<String>();
+    public ChessGame(String hostID){
+        this.hostID = hostID;
     }
 
     //private functions
@@ -57,5 +56,9 @@ public class ChessGame {
 
     public ArrayList<String> getPlayers() {
         return players;
+    }
+
+    public String getHostID() {
+        return hostID;
     }
 }

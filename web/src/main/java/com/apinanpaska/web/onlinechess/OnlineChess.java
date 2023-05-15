@@ -1,5 +1,6 @@
 package com.apinanpaska.web.onlinechess;
 
+import com.apinanpaska.web.db.dbmodels.GameMenuRenderModel;
 import com.apinanpaska.web.onlinechess.chessgame.ChessGame;
 import com.apinanpaska.web.util.ChessGameUtil;
 import com.apinanpaska.web.util.GeneralUtil;
@@ -8,7 +9,6 @@ import java.util.*;
 
 public class OnlineChess {
 
-    //tähän
     static final int maxGameCount = 20;
     static int gameCount = 0;
     static Map<String, ChessGame> games;
@@ -18,7 +18,7 @@ public class OnlineChess {
         if(gameCount >= maxGameCount) return null;
 
         String roomID = GeneralUtil.randomToken();
-        games.put(roomID, new ChessGame());
+        games.put(roomID, new ChessGame(clientID));
         gameCount++;
 
         return roomID;
@@ -37,8 +37,14 @@ public class OnlineChess {
         return games.get(roomID).removePlayer(clientID);
     }
 
-    //main and run
+    //render functions
+    public static List<GameMenuRenderModel> renderGames(){
+        List<GameMenuRenderModel> list = new ArrayList<GameMenuRenderModel>();
+        for(String key : games.keySet()) list.add(new GameMenuRenderModel(key, games.get(key).getHostID()));
+        return list;
+    }
 
+    //main and run
     private static void mainLoop(){
 
         for(ChessGame game : games.values()) game.iteration();
