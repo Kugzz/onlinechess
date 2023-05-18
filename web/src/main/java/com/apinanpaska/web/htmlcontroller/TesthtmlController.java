@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TesthtmlController {
 
     //toimii!!!!
+    //voi tyylii jo poistaa
     @GetMapping("/koira")
     public String koira(){
         System.out.println("koira");

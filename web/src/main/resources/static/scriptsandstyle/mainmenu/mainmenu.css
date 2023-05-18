@@ -1,0 +1,37 @@
+/*classit*/
+
+/*id
+jatka css
+*/
+
+#gameBrowser{
+    height: 500px;
+    width: 70vw;
+    margin: auto;
+
+    border: 3px solid blue;
+}
+
+#roomsDisplay{
+    height: 400px;
+    overflow-y: scroll;
+    border: 3px solid black;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#roomIDInput{
+    width: auto;
+    height: 10px;
+}
+
+#createGameButton{
+    width: auto;
+    height: 10px;
+}
+
+#joinGameButton{
+    width: auto;
+    height: 10px;
+}
