@@ -18,14 +18,16 @@ public class PostController {
 
     @PostMapping("/rest/createGame")
     public ConnectionServerModel createGame(@RequestBody ConnectionClientModel connectionClientModel){
-        System.out.println("createGame request made");
+
+        System.out.println(connectionClientModel.clientID());
         return new ConnectionServerModel(null, null, OnlineChess.createGame(connectionClientModel.clientID()));
     }
 
     @PostMapping("/rest/connectClient")
     public ConnectionServerModel connectClient(@RequestBody ConnectionClientModel connectionClientModel){
         System.out.println("connectClient request made");
-        return new ConnectionServerModel(OnlineChess.connectClient(connectionClientModel.clientID(), connectionClientModel.roomID()), null, null);
+        return new ConnectionServerModel(OnlineChess.connectClient(connectionClientModel.clientID(), connectionClientModel.roomID()),
+                connectionClientModel.clientID(), connectionClientModel.roomID());
     }
 
 }

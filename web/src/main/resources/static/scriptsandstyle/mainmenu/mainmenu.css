@@ -1,19 +1,24 @@
-/*classit*/
 
-/*id
-jatka css
-*/
+.gameBrowserButton{
+    background-color: rgba(40, 238, 14, 0.63);
+}
 
 #gameBrowser{
-    height: 500px;
+    height: 600px;
     width: 70vw;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     border: 3px solid blue;
+
 }
 
 #roomsDisplay{
     height: 400px;
+    width: 80%;
     overflow-y: scroll;
     border: 3px solid black;
 
@@ -23,15 +28,15 @@ jatka css
 
 #roomIDInput{
     width: auto;
-    height: 10px;
+    height: 30px;
 }
 
 #createGameButton{
     width: auto;
-    height: 10px;
+    height: 30px;
 }
 
 #joinGameButton{
     width: auto;
-    height: 10px;
+    height: 30px;
 }

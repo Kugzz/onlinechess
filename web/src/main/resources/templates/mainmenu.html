@@ -4,23 +4,24 @@
       <meta charset="UTF-8">
       <title>OnlineChess</title>
       <link rel="stylesheet" th:href="@{/scriptsandstyle/mainmenu/mainmenu.css}">
+      <script th:src="@{/scriptsandstyle/mainmenu/classes.js}"></script>
   </head>
   <body>
     <h1>Main menu</h1>
-
-    <!-- roomdisplayn ja napit voi varmaa laittaa omaan diviinsä -->
     <div id="gameBrowser">
         <div id="roomsDisplay">
             <div id="gamestab">
                 <div th:each="game : ${games}">
-                    <td th:text="${game.roomID}"></td>
-                    <td th:text="${game.hostID}"></td>
+                    <div class="gameRoom" th:id="${game.roomID}">
+                        <td th:text="${game.roomID}"></td>
+                        <td th:text="${game.hostID}"></td>
+                    </div> 
                 </div>
             </div>
         </div>
         <input id="roomIDInput">
-        <button id="createGameButton">create game</button>
-        <button id="joinGameButton">join game</button>
+        <button class="gameBrowserButton" id="createGameButton">create game</button>
+        <button class="gameBrowserButton" id="joinGameButton">join game</button>
     </div>
 
     <script th:src="@{/scriptsandstyle/mainmenu/mainmenu.js}"></script>

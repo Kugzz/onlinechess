@@ -16,10 +16,4 @@ public class GetController {
         return GeneralUtil.randomToken();
     }
 
-    //redirect toimii myös!
-    @GetMapping("/apina")
-    public ModelAndView redirectTest (){
-
-        return new ModelAndView("redirect:http://localhost:8080/kissa");
-    }
 }
