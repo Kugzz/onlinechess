@@ -20,7 +20,8 @@ public class PostController {
     public ConnectionServerModel createGame(@RequestBody ConnectionClientModel connectionClientModel){
 
         System.out.println(connectionClientModel.clientID());
-        return new ConnectionServerModel(null, null, OnlineChess.createGame(connectionClientModel.clientID()));
+        return new ConnectionServerModel(0, connectionClientModel.clientID(),
+                OnlineChess.createGame(connectionClientModel.clientID()));
     }
 
     @PostMapping("/rest/connectClient")

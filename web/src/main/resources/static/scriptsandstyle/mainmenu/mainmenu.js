@@ -8,7 +8,6 @@ const joinGameButton = document.querySelector('#joinGameButton');
 const gameRooms = document.getElementsByClassName('gameRoom');
 
 //vars
-//testi
 let token;
 
 //const util functions
@@ -24,9 +23,20 @@ const getRoomIDInputValue = () => {
 
 const getToken = async () => {
     //hyvin keskeneräinen
-    await fetch("http://localhost:8080/rest/getToken").then(result => result.text()).then(result => {
-        token = result;
-    })
+    //huomio testit!
+    localStorage.setItem("token", "aasi");
+    console.log(localStorage.getItem("token"));
+    if(localStorage.getItem("token") == null){
+        console.log(localStorage.getItem("token"));
+        await fetch("http://localhost:8080/rest/getToken").then(result => result.text()).then(result => {
+            localStorage.setItem("token", result);
+            token = result;
+        })
+    }
+    else token = localStorage.getItem("token");
+
+    console.log(token);
+    console.log(localStorage.getItem("token"));
 }
 
 const getGamePage = async (result) => {
@@ -39,7 +49,7 @@ const getGamePage = async (result) => {
 
     //TOKENI VAIHTUU KUN SIVUN RESETTAA!!!
     console.log(result);
-    console.log(result.roomID());
+    console.log(result.roomID);
     fetch(API + '/game/' + result.roomID);
 }
 
