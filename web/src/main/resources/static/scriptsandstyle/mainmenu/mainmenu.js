@@ -22,24 +22,18 @@ const getRoomIDInputValue = () => {
 //server functions
 
 const getToken = async () => {
-    //hyvin keskeneräinen
-    //huomio testit!
-    localStorage.setItem("token", "aasi");
-    console.log(localStorage.getItem("token"));
+ 
     if(localStorage.getItem("token") == null){
-        console.log(localStorage.getItem("token"));
         await fetch("http://localhost:8080/rest/getToken").then(result => result.text()).then(result => {
             localStorage.setItem("token", result);
             token = result;
         })
     }
     else token = localStorage.getItem("token");
-
-    console.log(token);
-    console.log(localStorage.getItem("token"));
 }
 
 const getGamePage = async (result) => {
+    console.log("kutsuttu");
     if(result.status != 0){
         //tee parempi error handling
         console.log("error in creating joining game");
@@ -47,10 +41,7 @@ const getGamePage = async (result) => {
         return
     }
 
-    //TOKENI VAIHTUU KUN SIVUN RESETTAA!!!
-    console.log(result);
-    console.log(result.roomID);
-    fetch(API + '/game/' + result.roomID);
+    if(result.status == 0) window.location.href = API + '/game/' + result.roomID;
 }
 
 const createGame = async () => {
@@ -64,9 +55,7 @@ const createGame = async () => {
             "Content-type": "application/json; charset=UTF-8"
         }
 
-    }).then((result) => result.json()).then((result) => {
-        console.log(result)
-    })
+    }).then((result) => result.json()).then((result) => getGamePage(new ConnectionServerModel(result)));
 }
 
 const joinGame = async () => {
@@ -90,5 +79,12 @@ Array.from(gameRooms).forEach(element => {
 })
 
 //init
-console.log("mainmenu");
 getToken();
+
+//testi koodi
+
+addEventListener("keydown", e => {
+    if(e.key != 'a') return;
+    localStorage.clear();
+    console.log("localstorage siivottu");
+})

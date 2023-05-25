@@ -1,4 +1,4 @@
-package com.apinanpaska.web.util;
+package com.apinanpaska.web.util.chessgameutil;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,12 @@ public class ChessGameUtil {
 
     //checks if a player with a specific id is joined
     public static boolean playerJoined(String playerID, ArrayList<String> players){
-        for(String player : players) if(playerID == player) return true;
+        for(String player : players) {
+            player.trim();
+            playerID.trim();
+            if(playerID.equals(player)) return true;
+        }
         return false;
     }
+
 }

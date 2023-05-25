@@ -2,7 +2,7 @@ package com.apinanpaska.web.onlinechess;
 
 import com.apinanpaska.web.db.dbmodels.GameMenuRenderModel;
 import com.apinanpaska.web.onlinechess.chessgame.ChessGame;
-import com.apinanpaska.web.util.ChessGameUtil;
+import com.apinanpaska.web.util.chessgameutil.ChessGameUtil;
 import com.apinanpaska.web.util.GeneralUtil;
 
 import java.util.*;

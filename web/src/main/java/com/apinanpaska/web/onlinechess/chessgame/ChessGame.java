@@ -1,15 +1,19 @@
 package com.apinanpaska.web.onlinechess.chessgame;
 
-import com.apinanpaska.web.util.ChessGameUtil;
+import com.apinanpaska.web.onlinechess.chessgame.chess.Chess;
+import com.apinanpaska.web.util.chessgameutil.ChessGameUtil;
 
 import java.util.ArrayList;
 
+//kontrolloi Chessin metodien kanssa
 public class ChessGame {
 
     //muuttujia oikeasti enemmän
     int playerCount = 0; int maxPlayerCount = 2;
     String hostID;
     ArrayList<String> players = new ArrayList<String>();
+    //väliaikainen
+    Chess chess = new Chess();
 
     public ChessGame(String hostID){
         this.hostID = hostID;
@@ -19,6 +23,7 @@ public class ChessGame {
 
     //public functions
 
+    //hyödynnä lähinnä kellon kanssa
     public void iteration(){
 
     }

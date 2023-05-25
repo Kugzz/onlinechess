@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
       <meta charset="UTF-8">
       <title>Game</title>
+      <script th:src="@{/scriptsandstyle/game/classes.js}"></script>
   </head>
   <body>
     <h1>Game</h1>
+    <!-- muitakin elementtejä kuin pelkästää chessboard!!!!-->
+    <div is="chess-board" id="chessboard">
 
+    </div>
+
+    <script th:src="@{/scriptsandstyle/game/game.js}"></script>
   </body>
 </html>
