@@ -14,7 +14,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void configureMessageBroker(MessageBrokerRegistry registry){
         //jatka tästä
         // --> chat gpt
-        registry.enableSimpleBroker("/user"); //joku, vaiha -> topic jos ei toimi
+        registry.enableSimpleBroker("/topic"); //joku, vaiha -> topic jos ei toimi
         registry.setUserDestinationPrefix("/app"); //wsapin endpoint
     }
 

@@ -4,6 +4,9 @@ import com.apinanpaska.web.onlinechess.chessgame.chess.Chess;
 import com.apinanpaska.web.util.chessgameutil.ChessGameUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 //kontrolloi Chessin metodien kanssa
 public class ChessGame {
@@ -11,7 +14,9 @@ public class ChessGame {
     //muuttujia oikeasti enemmän
     int playerCount = 0; int maxPlayerCount = 2;
     String hostID;
-    ArrayList<String> players = new ArrayList<String>();
+    List<String> players = new ArrayList<String>();
+    //Map<String, String> websockets = new HashMap<String, String>();
+
     //väliaikainen
     Chess chess = new Chess();
 
@@ -50,6 +55,22 @@ public class ChessGame {
         return 1;
     }
 
+    /*
+    public int mapWebsocket(String userID, String websocket){
+        if(websockets.get(userID) != null) return 1;
+        websockets.put(userID, websocket);
+
+        return 0;
+    }
+
+    public int removeWebsocket(String userID){
+        if(websockets.get(userID) == null) return 1;
+        websockets.remove(userID);
+
+        return 0;
+    }
+     */
+
     //getters
     public int getPlayerCount() {
         return playerCount;
@@ -59,7 +80,7 @@ public class ChessGame {
         return maxPlayerCount;
     }
 
-    public ArrayList<String> getPlayers() {
+    public List<String> getPlayers() {
         return players;
     }
 

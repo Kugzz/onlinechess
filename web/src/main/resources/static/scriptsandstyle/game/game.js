@@ -19,17 +19,21 @@ const getToken = async () => {
 let stompClient = null;
 
 function connect(){
-    let socket = new SockJS('/ws');
+    let socket = new SockJS('/ws', [], {
+        sessionId: () => {return token}
+    });
     stompClient = Stomp.over(socket);
 
     stompClient.connect({}, function (frame){
        console.log(frame);
+    
+        //testit done! Voit alkaa tekee
 
-       //user muuttuu automaattisesti idks
-       stompClient.subscribe("/user/queue/reply", function (message){
-           console.log("/user/queue/reply ", message.body);
+       stompClient.subscribe("user/queue/reply", function (message){
+           console.log("user/queue/reply ", message.body);
        });
 
+       //user on websocketin id eikä token!!!!!!! 
        stompClient.subscribe("user/queue/data", function (message){
            console.log("user/queue/data ", message.body);
        })

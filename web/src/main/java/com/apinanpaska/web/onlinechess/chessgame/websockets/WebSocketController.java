@@ -8,6 +8,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@MessageMapping("/app")
 public class WebSocketController {
 
     @Autowired
@@ -19,6 +20,10 @@ public class WebSocketController {
     public void sendToUser(@DestinationVariable("userID") String userID, String message){
         System.out.println(userID);
         System.out.println("message " + message);
+
+        //testaa viel et vastaukset toimii
+        //testaa esim convertAndSendTo-funktiota
+        simpMessagingTemplate.convertAndSend(userID + "/queue/reply", "moi!");
         simpMessagingTemplate.convertAndSendToUser(userID, "/queue/reply", "hello!");
     }
 
