@@ -3,7 +3,7 @@ package com.apinanpaska.web.util.enums;
 public enum PieceType {
     PW,
     RK,
-    HR,
+    KN,
     BH,
     QN,
     KG,

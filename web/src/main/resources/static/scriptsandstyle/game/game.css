@@ -1,0 +1,12 @@
+<!-- eka kohta Tavallaan turha -->
+.piece-square{
+    position: absolute;
+
+    background-color: green;
+}
+
+#chessboard{
+    position: relative;
+
+    background-color: aqua;
+}

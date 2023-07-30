@@ -12,10 +12,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry){
-        //jatka tästä
-        // --> chat gpt
-        registry.enableSimpleBroker("/topic"); //joku, vaiha -> topic jos ei toimi
-        registry.setUserDestinationPrefix("/app"); //wsapin endpoint
+
+        //sinänsä turha
+        registry.enableSimpleBroker("/topic", "/queue", "/user");
+        registry.setApplicationDestinationPrefixes("/app");
+        //registry.setUserDestinationPrefix("/api"); //wsapin endpoint
     }
 
     @Override

@@ -3,18 +3,20 @@
   <head>
       <meta charset="UTF-8">
       <title>Game</title>
+      <link rel="stylesheet" th:href="@{/scriptsandstyle/game/game.css}">
       <script src="/webjars/jquery/jquery.min.js"></script>
       <script src="/webjars/sockjs-client/sockjs.min.js"></script>
       <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-      <script th:src="@{/scriptsandstyle/game/classes.js}"></script>
+      <script th:src="@{/scriptsandstyle/game/game-classes.js}"></script>
+      <script th:src="@{/scriptsandstyle/game/game-chess.js}"></script>
   </head>
   <body>
     <h1>Game</h1>
-    <!-- muitakin elementtejä kuin pelkästää chessboard!!!!-->
+
     <div is="chess-board" id="chessboard">
 
     </div>
 
-    <script th:src="@{/scriptsandstyle/game/game.js}"></script>
+    <script th:src="@{/scriptsandstyle/game/game-websocket.js}"></script>
   </body>
 </html>

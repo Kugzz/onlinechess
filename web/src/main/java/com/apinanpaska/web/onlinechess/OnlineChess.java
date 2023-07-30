@@ -61,4 +61,8 @@ public class OnlineChess {
         games = new HashMap<String, ChessGame>();
         //mainLoop();
     }
+
+    public static Map<String, ChessGame> getGames() {
+        return games;
+    }
 }

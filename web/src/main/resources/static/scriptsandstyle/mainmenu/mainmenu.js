@@ -24,7 +24,7 @@ const getRoomIDInputValue = () => {
 const getToken = async () => {
  
     if(localStorage.getItem("token") == null){
-        await fetch("http://localhost:8080/rest/getToken").then(result => result.text()).then(result => {
+        await fetch(API + "/rest/getToken").then(result => result.text()).then(result => {
             localStorage.setItem("token", result);
             token = result;
         })
@@ -34,14 +34,14 @@ const getToken = async () => {
 
 const getGamePage = async (result) => {
     console.log("kutsuttu");
-    if(result.status != 0){
+    if(result.status !== 0){
         //tee parempi error handling
         console.log("error in creating joining game");
         console.log(result.status);
         return
     }
 
-    if(result.status == 0) window.location.href = API + '/game/' + result.roomID;
+    if(result.status === 0) window.location.href = API + '/game/' + result.roomID;
 }
 
 const createGame = async () => {
